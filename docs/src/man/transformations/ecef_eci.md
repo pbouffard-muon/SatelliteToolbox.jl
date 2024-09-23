@@ -4,6 +4,8 @@
 CurrentModule = SatelliteToolbox
 DocTestSetup = quote
     using SatelliteToolbox
+    eop_IAU1980 = get_iers_eop();
+    eop_IAU2000A = get_iers_eop(Val(:IAU2000A));
 end
 ```
 
@@ -65,13 +67,14 @@ in which:
   returned value should be passed to the reference frame conversion functions as
   described in the following.
 
-```jldoctest ECEF_ECI
+```julia
 julia> eop_IAU1980 = get_iers_eop();
 [ Info: Downloading file 'EOP_IAU1980.TXT' from 'https://datacenter.iers.org/data/csv/finals.all.csv' with cURL.
 
 julia> eop_IAU2000A = get_iers_eop(Val(:IAU2000A));
 [ Info: Downloading file 'EOP_IAU2000A.TXT' from 'https://datacenter.iers.org/data/csv/finals2000A.all.csv' with cURL.
 ```
+
 
 ## ECEF to ECEF
 
@@ -171,9 +174,9 @@ to the GCRF will not be available, reducing the precision.
 ```jldoctest ECEF_ECI
 julia> r_eci_to_eci(DCM, GCRF(), J2000(), date_to_jd(1986, 6, 19, 21, 35, 0), eop_IAU1980)
 DCM{Float64}:
-  1.0         -4.71332e-12   1.53474e-9
-  4.7133e-12   1.0          -3.53979e-9
- -1.53474e-9   3.53979e-9    1.0
+  1.0          -4.71332e-12   1.53474e-9
+  4.71326e-12   1.0          -3.53979e-9
+ -1.53474e-9    3.53979e-9    1.0
 
 julia> r_eci_to_eci(Quaternion, TEME(), GCRF(), date_to_jd(1986, 6, 19, 21, 35, 0), eop_IAU1980)
 Quaternion{Float64}:
