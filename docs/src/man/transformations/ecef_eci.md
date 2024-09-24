@@ -174,8 +174,8 @@ to the GCRF will not be available, reducing the precision.
 ```jldoctest ECEF_ECI
 julia> r_eci_to_eci(DCM, GCRF(), J2000(), date_to_jd(1986, 6, 19, 21, 35, 0), eop_IAU1980)
 DCM{Float64}:
-  1.0          -4.71332e-12   1.53474e-9
-  4.71326e-12   1.0          -3.53979e-9
+  1.0          -4.71326e-12   1.53474e-9
+  4.71332e-12   1.0          -3.53979e-9
  -1.53474e-9    3.53979e-9    1.0
 
 julia> r_eci_to_eci(Quaternion, TEME(), GCRF(), date_to_jd(1986, 6, 19, 21, 35, 0), eop_IAU1980)
