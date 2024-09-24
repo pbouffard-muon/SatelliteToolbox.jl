@@ -1143,7 +1143,7 @@ Compute the secular effects.
 
 # Args
 
-- `sgp4_ds::SGP4_DeepSpace`: Deep space structure (see [`SGP4_DeepSpace`](@ref)).
+- `sgp4_ds::SGP4_DeepSpace`: Deep space structure (see [`SGP4.SGP4_DeepSpace`]).
 - `nll_0::Number`: Initial mean motion [rad/min].
 - `e_0::Number`: Initial eccentricity.
 - `i_0::Number`: Initial inclination [rad].
@@ -1304,7 +1304,7 @@ Compute the effects caused by Lunar-Solar periodics.
 
 # Args
 
-- `sgp4_ds::SGP4_DeepSpace`: Deep space structure (see [`SGP4_DeepSpace`](@ref)).
+- `sgp4_ds::SGP4_DeepSpace`: Deep space structure (see [`SGP4_DeepSpace`]).
 - `e_k::Number`: Current eccentricity.
 - `i_k::Number`: Current inclination [rad].
 - `Ω_k::Number`: Current right ascension of the ascending node [rad].
